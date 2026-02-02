@@ -1,24 +1,45 @@
+function handleYes() {
+    alert("I love you baby.");
+    console.log("Yes button clicked!"); // Check your browser console (F12) for this!
 
-const noBtn = document.getElementById('noBtn');
-const yesBtn = document.getElementById('yesBtn');
-const mainText = document.getElementById('main-text');
+    const card = document.getElementById('mainCard');
+    const container = document.getElementById('videoContainer');
+    const video = document.getElementById('myVideo');
 
-// Function to move the "No" button randomly
-noBtn.addEventListener('mouseover', () => {
-    // Calculate new position (subtracting button size to keep it in view)
+    // Hide the card
+    if (card) card.style.setProperty("display", "none", "important");
+
+    // Show the container
+    if (container) {
+        container.style.setProperty("display", "flex", "important");
+        console.log("Container is now set to flex");
+    }
+
+    // Play the video
+    if (video) {
+        video.load(); // Reloads the video source
+        video.play().then(() => {
+            console.log("Video playing successfully");
+        }).catch(err => {
+            console.error("Video error:", err);
+            alert("The video file 'valentine_video.mp4' was not found in your folder!");
+        });
+    }
+}
+
+// Function for when NO is clicked
+function moveNo() {
+    const noBtn = document.getElementById('noBtn');
+
+    // Calculate a random position within the browser window
+    // We subtract the button width/height so it doesn't go off-screen
     const maxX = window.innerWidth - noBtn.offsetWidth;
     const maxY = window.innerHeight - noBtn.offsetHeight;
 
     const randomX = Math.floor(Math.random() * maxX);
     const randomY = Math.floor(Math.random() * maxY);
 
-    noBtn.style.left = randomX + 'px';
-    noBtn.style.top = randomY + 'px';
-});
-
-// Logic for when they click "Yes"
-yesBtn.addEventListener('click', () => {
-    mainText.innerHTML = "I knew you'd say yes! ❤️";
-    noBtn.style.display = 'none'; // Hide the pesky No button
-    yesBtn.style.transform = 'scale(1.5)';
-});
+    // Apply the new coordinates
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+}

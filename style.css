@@ -1,64 +1,86 @@
+/* 1. Reset and Background */
 body {
     margin: 0;
+    padding: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffeef2;
-    font-family: 'Arial', sans-serif;
-    overflow: hidden; /* Prevents scrollbars when button moves */
+    background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden; /* Prevents scrollbars when 'No' button moves */
 }
 
+/* 2. The Main Question Card */
 .card {
     background: white;
-    padding: 3rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 40px;
+    border-radius: 25px;
     text-align: center;
-    width: 350px;
-}
-
-.heart {
-    font-size: 4rem;
-    animation: heartbeat 1.5s infinite;
-}
-
-@keyframes heartbeat {
-    0% { transform: scale(1); }
-    15% { transform: scale(1.2); }
-    30% { transform: scale(1); }
-    45% { transform: scale(1.15); }
-    60% { transform: scale(1); }
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    z-index: 10;
+    position: relative;
 }
 
 h1 {
     color: #d63384;
-    font-size: 1.5rem;
-    margin: 20px 0;
+    font-size: 1.6rem;
+    margin-bottom: 25px;
 }
 
-.button-group {
+/* 3. The Button Layout (Fixes Stacking) */
+.button-wrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
+    height: 50px;
+    position: relative;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px
 }
 
-.btn {
-    padding: 10px 25px;
+/* 4. Shared Button Styles */
+button {
+    padding: 12px 25px;
     font-size: 1rem;
+    font-weight: bold;
     border: none;
-    border-radius: 10px;
+    border-radius: 50px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: all 0.2s ease;
 }
 
 #yesBtn {
     background-color: #ff4b6e;
     color: white;
+    box-shadow: 0 4px 15px rgba(255, 75, 110, 0.3);
+}
+
+#yesBtn:hover {
+    transform: scale(1.1);
 }
 
 #noBtn {
-    background-color: #ced4da;
-    color: #333;
-    position: absolute; /* Allows JS to move it freely */
+    background-color: #f8f9fa;
+    color: #444;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    /* Transition is important for the "smooth jump" */
+    transition: left 0.1s ease, top 0.1s ease; 
+    position: fixed; 
+    transition: 0.1s;
+    z-index: 999;
 }
+
+/* 5. THE VIDEO SECTION (The Fix) */
+#videoContainer {
+    /* Starts hidden with !important to ensure it stays hidden */
+    display: none !important; 
+    
+    /* Covers the entire screen */
+    position: center;
+    top: 0;
+    left: 0;
+    width: 1}
