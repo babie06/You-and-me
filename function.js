@@ -1,19 +1,24 @@
 
 const noBtn = document.getElementById('noBtn');
 const yesBtn = document.getElementById('yesBtn');
+const mainText = document.getElementById('main-text');
 
-// 1. Make the "No" button run away
+// Function to move the "No" button randomly
 noBtn.addEventListener('mouseover', () => {
-    // Generate random coordinates within the window
-    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-    
-    noBtn.style.left = `${x}px`;
-    noBtn.style.top = `${y}px`;
+    // Calculate new position (subtracting button size to keep it in view)
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    noBtn.style.left = randomX + 'px';
+    noBtn.style.top = randomY + 'px';
 });
 
-// 2. Success message
+// Logic for when they click "Yes"
 yesBtn.addEventListener('click', () => {
-    alert("I knew you'd say yes! ❤️");
-    document.querySelector('h1').innerHTML = "YAY! See you soon! 😘";
+    mainText.innerHTML = "I knew you'd say yes! ❤️";
+    noBtn.style.display = 'none'; // Hide the pesky No button
+    yesBtn.style.transform = 'scale(1.5)';
 });
