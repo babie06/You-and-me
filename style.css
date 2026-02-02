@@ -78,10 +78,11 @@ button {
 /* 5. THE VIDEO SECTION (The Fix) */
 #videoContainer {
     /* Starts hidden with !important to ensure it stays hidden */
-    display: none !important; 
+    display: none ; 
     
     /* Covers the entire screen */
     position: center;
     top: 0;
     left: 0;
     width: 1}
+
