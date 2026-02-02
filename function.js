@@ -1,5 +1,5 @@
 function handleYes() {
-    alert("I love you baby.");
+    alert("I love you too baby. I'm sorry for yesterday.");
     console.log("Yes button clicked!"); // Check your browser console (F12) for this!
 
     const card = document.getElementById('mainCard');
@@ -43,3 +43,4 @@ function moveNo() {
     noBtn.style.left = randomX + "px";
     noBtn.style.top = randomY + "px";
 }
+
