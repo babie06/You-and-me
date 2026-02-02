@@ -1,14 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My First Web Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day!</title>
+    <style>
+        body {
+            background-color: #fff0f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .card {
+            background-color: white;
+            width: 300px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 75, 110, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .heart {
+            color: #ff4b6e;
+            font-size: 80px;
+            animation: beat 1.2s infinite;
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        h1 {
+            color: #ff4b6e;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .message {
+            color: #555;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            margin-top: 15px;
+        }
+
+        .card:hover .message {
+            opacity: 1;
+        }
+
+        .floating-text {
+            font-size: 12px;
+            color: #ffb3c1;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Your visible content goes here -->
-    <h1>Hello, World!</h1>
-    <p>This is my first paragraph.</p>
+    <div class="card">
+        <div class="floating-text">Hover to Open</div>
+        <div class="heart">❤</div>
+        <h1>Happy Valentine's Day!</h1>
+        <div class="message">
+            "You make my heart skip a beat every single day. <br><strong>Will you be mine?</strong>"
+        </div>
+    </div>
 
 </body>
 </html>
